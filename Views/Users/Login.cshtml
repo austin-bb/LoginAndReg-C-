@@ -1,0 +1,18 @@
+@model LoginUser
+
+<h1 class="text-center">Login to this cool site!</h1>
+<a href="/registration">Register</a>
+
+<form asp-controller="Users" asp-action="LoginUser" method="post" class="w-25 d-flex flex-column m-5">
+  <div class="mt-3">
+    <label asp-for="LoginEmail"></label>
+    <span asp-validation-for="LoginEmail" class="text-danger"></span>
+    <input asp-for="LoginEmail" class="form-control">
+  </div>
+  <div class="mt-3">
+    <label asp-for="LoginPassword"></label>
+    <span asp-validation-for="LoginPassword" class="text-danger"></span>
+    <input asp-for="LoginPassword" class="form-control">
+    <button type="submit" class="btn btn-primary mt-3">Login</button>
+  </div>
+</form>
