@@ -16,6 +16,14 @@ public class HomeController : Controller
       }
     }
 
+    private bool loggedIn
+    {
+      get
+      {
+        return uid != null;
+      }
+    }
+
     public HomeController(ILogger<HomeController> logger)
     {
         _logger = logger;
@@ -30,6 +38,10 @@ public class HomeController : Controller
     [HttpGet("/success")]
     public IActionResult Success()
     {
+      if (!loggedIn)
+      {
+        return RedirectToAction("Registration", "Users");
+      }
       return View("Success");
     }
 
